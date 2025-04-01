@@ -14,7 +14,7 @@ int main ()
     {
         vt[i] = 1 + rand() % 100;
         
-        printf("%f" , vt[i]);
+        printf("%f -" , vt[i]);
     }
 
     return 0;
