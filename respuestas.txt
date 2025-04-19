@@ -1,0 +1,13 @@
+TP2
+Respuestas a las preguntas del ejercicio 2
+Apartado f) ¿Que ocurre con el archivo tp2_1_2?
+Sucedio que cree una nueva rama, llamada "Opcion_2", alli guarde mi archivo
+tp2_1_2. Al cambiar a la rama main con "$git checkout main", ya no aparecen mis archivos
+visibles en mi carpeta local, ya que mi rama main no contiene este archivo, "Por eso desapacere"
+Esto se debe a que cree una version paralela del proyecyo (otra rama), cuando cambio de rama, cambio lo que veo 
+en la carpeta.
+¿Que sucede en source control cuando agrego el archivo Respuestas.txt al main?
+La diferencia, es que en el grap se visualiza como continuo los cambios en el main, 
+asi como la rama paralera (Opcion_2) en donde vemos el commit de numeros aleatorios con aritmetica de punteros.
+¿Que cambios hay en el source control luego de hacer un merge?
+Se muestra como las ramas se unen
