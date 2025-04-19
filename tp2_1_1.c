@@ -8,6 +8,7 @@ int main()
 {
     int i;
     double vt[N];
+    
     srand(time(NULL));  // Semilla antes del uso de rand()
 
     for (i = 0; i < N; i++)
