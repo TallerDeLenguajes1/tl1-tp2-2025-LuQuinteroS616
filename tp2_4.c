@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-struct compu
+#define CANTIDAD 5
+struct compu //pdf
 {
     int velocidad;        // Velocidad de procesamiento en GHz (valor entre 1 y 3)
     int anio;             // Año de fabricación (valor entre 2015 y 2024)
@@ -25,7 +26,7 @@ int main()
     char tiposCpu[6][10] = {"Intel", "AMD", "Celeron", "Athlon", "Core",
         "Pentium"};
 
-    PC computadoras[5];
+    PC computadoras[CANTIDAD];
 
     for (int i = 0; i < 5; i++) {
         //accedo a cada arreglo 
@@ -34,12 +35,23 @@ int main()
         computadoras[i].cantidad_nucleos = rand() % 8 + 1;
         computadoras[i].tipo_cpu = tiposCpu[rand() % 6];  //el rand()%6 va desde 0 a 5
     }
+        listarPCs(computadoras,CANTIDAD);
 
     return 0;
 }
-void listarPCs(struct compu pcs[], int cantidad){
-
+void listarPCs(struct compu pcs[], int cantidad) {
+    //que recorra la cantidad de veces del arreglo(la constante)
+    //indexacion
+    for (int i = 0; i < cantidad; i++) {
+        printf("\nPC nº[%d]\n", i + 1);
+        printf("Velocidad: %d GHz\n", pcs[i].velocidad);
+        printf("Anio de fabricación: %d\n", pcs[i].anio);
+        printf("Cantidad de nucleos: %d\n", pcs[i].cantidad_nucleos);
+        printf("Tipo de CPU: %s\n", pcs[i].tipo_cpu);
+        printf("======================================\n");//ORDEN
+    }
 }
+
 void mostrarMasVieja(struct compu pcs[], int cantidad){
 
 }
