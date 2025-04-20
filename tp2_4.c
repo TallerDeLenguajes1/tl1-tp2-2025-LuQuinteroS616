@@ -9,6 +9,10 @@ struct compu
     char *tipo_cpu;       // Tipo de procesador (apuntador a cadena de caracteres)
 };
 typedef struct compu PC; // quiero usar PC
+void listarPCs(struct compu pcs[], int cantidad);
+void mostrarMasVieja(struct compu pcs[], int cantidad);
+void mostrarMasVeloz(struct compu pcs[], int cantidad);
+
 int main()
 {
     srand(time(NULL)); 
@@ -32,4 +36,13 @@ int main()
     }
 
     return 0;
+}
+void listarPCs(struct compu pcs[], int cantidad){
+
+}
+void mostrarMasVieja(struct compu pcs[], int cantidad){
+
+}
+void mostrarMasVeloz(struct compu pcs[], int cantidad){
+
 }
