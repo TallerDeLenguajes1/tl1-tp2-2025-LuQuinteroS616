@@ -10,7 +10,7 @@ struct compu // pdf
     char *tipo_cpu;       // Tipo de procesador (apuntador a cadena de caracteres)
 };
 typedef struct compu PC; // quiero usar PC
-//en la declaracion de las funciones, cambie el struct compu por PC por el typedef 
+// en la declaracion de las funciones, cambie el struct compu por PC por el typedef
 void listarPCs(PC pcs[], int cantidad);
 void mostrarMasVieja(PC pcs[], int cantidad);
 void mostrarMasVeloz(PC pcs[], int cantidad);
@@ -27,7 +27,7 @@ int main()
     char tiposCpu[6][10] = {"Intel", "AMD", "Celeron", "Athlon", "Core",
                             "Pentium"};
 
-    PC computadoras[CANTIDAD];
+    PC computadoras[CANTIDAD];//son 5
 
     for (int i = 0; i < 5; i++)
     {
@@ -35,10 +35,12 @@ int main()
         computadoras[i].velocidad = rand() % 3 + 1;
         computadoras[i].anio = rand() % (2024 - 2015 + 1) + 2015;
         computadoras[i].cantidad_nucleos = rand() % 8 + 1;
+        //esto funciona debido al puntero que se encuentra en la estructura
         computadoras[i].tipo_cpu = tiposCpu[rand() % 6]; // el rand()%6 va desde 0 a 5
     }
     listarPCs(computadoras, CANTIDAD);
     mostrarMasVieja(computadoras, CANTIDAD);
+    mostrarMasVeloz(computadoras,CANTIDAD);
 
     return 0;
 }
@@ -57,18 +59,21 @@ void listarPCs(PC pcs[], int cantidad)
     }
 }
 
-void mostrarMasVieja(PC pcs[], int cantidad){
+void mostrarMasVieja(PC pcs[], int cantidad)
+{
     int indiceDeLaVieja = 0;
-    //d
+    
     for (int i = 1; i < cantidad; i++)
-    {
+    { 
+            //se pone en cero e i en 1 para comparar en el if
+
         if (pcs[i].anio < pcs[indiceDeLaVieja].anio)
         {
             indiceDeLaVieja = i;
         }
     }
 
-    printf("\nLA PC MAS VIEJA ES LA Nº:[%d]:\n",indiceDeLaVieja+1);
+    printf("\nLA PC MAS VIEJA ES LA Nº:[%d]:\n", indiceDeLaVieja + 1);
     printf("Velocidad: %d GHz\n", pcs[indiceDeLaVieja].velocidad);
     printf("Anioo de fabricacion: %d\n", pcs[indiceDeLaVieja].anio);
     printf("Cantidad de nucleos: %d\n", pcs[indiceDeLaVieja].cantidad_nucleos);
@@ -77,4 +82,20 @@ void mostrarMasVieja(PC pcs[], int cantidad){
 
 void mostrarMasVeloz(PC pcs[], int cantidad)
 {
+    int indiceMasVeloz = 0;
+    //se pone en cero e i en 1 para comparar en el if
+    //mostrare la primera encontrada solamente
+    for (int i = 1; i < cantidad; i++)
+    {
+        if (pcs[i].velocidad > pcs[indiceMasVeloz].velocidad)
+        {
+            indiceMasVeloz = i;
+        }
+    }
+
+    printf("\nLA PC CON MAS VELOCIDAD Nº [%d]\n", indiceMasVeloz+1);
+    printf("Velocidad: %d GHz\n", pcs[indiceMasVeloz].velocidad);
+    printf("Anioo de fabricacion: %d\n", pcs[indiceMasVeloz].anio);
+    printf("Cantidad de nucleos: %d\n", pcs[indiceMasVeloz].cantidad_nucleos);
+    printf("Tipo de CPU: %s\n", pcs[indiceMasVeloz].tipo_cpu);
 }
